@@ -35,6 +35,7 @@ lib.addCommand("adrev", {
     local targetPlayerId = tonumber(args.target)
 
     if targetPlayerId then
+        targetPlayerId.revive()
         TriggerClientEvent("ND_Death:AdminRevivePlayerAtPosition", targetPlayerId)
         player.notify({
             title = "Admin Action",
