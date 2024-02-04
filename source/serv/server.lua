@@ -1,3 +1,5 @@
+QBCore = exports['qb-core']:GetCoreObject().
+
 -- Define a custom distance calculation function
 function CalculateDistance(x1, y1, z1, x2, y2, z2)
     local dx = x2 - x1
