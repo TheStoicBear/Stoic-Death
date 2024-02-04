@@ -35,8 +35,9 @@ lib.addCommand("adrev", {
     local targetPlayerId = tonumber(args.target)
 
     if targetPlayerId then
+        local targetPlayerId = NDCore.getPlayer(targetPlayerId)
         targetPlayerId.revive()
-        TriggerClientEvent("ND_Death:AdminRevivePlayerAtPosition", targetPlayerId)
+        TriggerClientEvent("AdminRevivePlayerAtPosition", targetPlayerId)
         player.notify({
             title = "Admin Action",
             position = 'top',  -- Set the position of the notification
