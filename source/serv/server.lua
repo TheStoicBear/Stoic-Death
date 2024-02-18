@@ -181,7 +181,8 @@ lib.addCommand("cpr", {
         })
 
         TriggerClientEvent("ND_Death:CPR", targetPlayerId)
-
+        local targetPlayer = NDCore.getPlayer(targetPlayerId)
+        targetPlayerId.revive()
         local reviveMessage = "You have revived a Player."
         player.notify({
             title = "Medical Action",
