@@ -24,7 +24,8 @@ Citizen.CreateThread(function()
         if IsDead then
             exports.spawnmanager:setAutoSpawn(false)
             ShowRespawnText()
-
+            EnableControlAction(0, 1, true)  -- LookLeftRight
+            EnableControlAction(0, 2, true)  -- LookUpDown
             -- Check if the E key is pressed and the respawn text is displayed
             if IsControlJustReleased(1, 38) and GetGameTimer() > bleedOutTime then
                 -- Respawn the player
@@ -60,8 +61,6 @@ Citizen.CreateThread(function()
                 secondsRemaining = secondsRemaining - 1
             end
 
-            DisableControlAction(0, 1, true)  -- LookLeftRight
-            DisableControlAction(0, 2, true)  -- LookUpDown
 
             -- Check if player is down and notify specific jobs
             if not IsEMSNotified then
@@ -73,8 +72,7 @@ Citizen.CreateThread(function()
             IsEMSNotified = false
             ShowRespawnText()
 
-            EnableControlAction(0, 1, false)  -- LookLeftRight
-            EnableControlAction(0, 2, true)  -- LookUpDown
+
         end
     end
 end)
@@ -222,8 +220,6 @@ function RespawnPlayerAtDownedPosition()
     DoScreenFadeIn(1500)
     secondsRemaining = Config.respawnTime
 end
-
-
 
 function DrawCustomText(text, x, y, scale, font)
     SetTextFont(font)
